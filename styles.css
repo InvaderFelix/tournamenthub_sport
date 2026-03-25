@@ -1,0 +1,94 @@
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, sans-serif;
+  background-color: #000;
+  color: #eee;
+}
+
+/* Navbar */
+.navbar {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 60px;
+  background: #111;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-top: 2px solid #cc0000;
+  z-index: 1000;
+}
+.navbar a {
+  color: #eee;
+  text-decoration: none;
+  font-size: 0.8rem;
+  text-align: center;
+}
+.navbar a.active {
+  color: #cc0000;
+  font-weight: bold;
+}
+
+/* Main content */
+main {
+  padding: 1rem;
+  padding-bottom: 80px; /* space for navbar */
+}
+
+/* Section blocks */
+.section {
+  background: #111;
+  border-left: 4px solid #cc0000;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  border-radius: 6px;
+  opacity: 0;
+  transform: translateY(10px);
+  animation: fadeIn 0.4s ease forwards;
+}
+@keyframes fadeIn {
+to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.section h2 {
+  margin-top: 0;
+  color: #cc0000;
+  font-size: 1.2rem;
+}
+.section p {
+  margin: 0.5rem 0 0;
+  line-height: 1.5;
+}
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    #111 25%,
+    #1a1a1a 50%,
+    #111 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.2s infinite;
+  border-radius: 6px;
+}
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+/* Specific shapes */
+.skel-title {
+  height: 20px;
+  width: 60%;
+  margin-bottom: 10px;
+}
+.skel-text {
+  height: 14px;
+  width: 100%;
+  margin-bottom: 6px;
+}
+.divider { /* Optional: subtle separators */
+  height: 1px;
+  background: #222;
+  margin: 1rem 0;
+}
