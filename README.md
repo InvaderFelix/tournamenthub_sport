@@ -4,7 +4,7 @@ A mobile portal for taking your kids to sport tournaments.
 ## Project TODO:
 
 ### Setup
-- [ ] Set up project files (index.html, styles.css, script.js)
+- [x] Set up project files (index.html, styles.css, script.js)
 - [ ] Build basic mobile layout (navbar + 4 tabs)
 - [ ] Add placeholder sections
 - [ ] Test spacing and scrolling on mobile
