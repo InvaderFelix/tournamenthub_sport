@@ -5,9 +5,9 @@ A mobile portal for taking your kids to sport tournaments.
 
 ### Setup
 - [x] Set up project files (index.html, styles.css, script.js)
-- [ ] Build basic mobile layout (navbar + 4 tabs)
-- [ ] Add placeholder sections
-- [ ] Test spacing and scrolling on mobile
+- [x] Build basic mobile layout (navbar + 4 tabs)
+- [x] Add placeholder sections
+- [x] Test spacing and scrolling on mobile
 
 ### JSON Data
 - [ ] Create data.json (schedules, transport, equipment, postMatch)
@@ -29,9 +29,9 @@ A mobile portal for taking your kids to sport tournaments.
 - [ ] Adjust colours if needed
 
 ### Deployment
-- [ ] Push to GitHub
-- [ ] Deploy via Netlify
-- [ ] Test live site on mobile
+- [x] Push to GitHub
+- [x] Deploy via Netlify
+- [x] Test live site on mobile
 - [ ] Confirm data.json is accessible
 
 ### Data Iteration
