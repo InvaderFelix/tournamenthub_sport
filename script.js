@@ -1,47 +1,69 @@
-document.addEventListener('DOMContentLoaded', () => {
-  
-  // Example: container for schedules tab
-  const schedulesContainer = document.getElementById('schedules');
+function renderSkeleton(section) {
+  section.innerHTML = `
+    <div class="skeleton skel-title"></div>
+    <div class="skeleton skel-text"></div>
+    <div class="skeleton skel-text"></div>
+  `;
+}
 
-  // Example: Generic function to render sections
-  function renderSection(container, items) {
-    container.innerHTML = ''; // clear previous content
-    items.forEach(item => {
-      const div = document.createElement('div');
-      div.className = 'section';
-      div.innerHTML = `
-        <h2>${item.title}</h2>
-        <p>${item.date || ''} ${item.time || ''}</p>
-        <p>${item.location || ''}</p>
-        <p>${item.notes || ''}</p>
-      `;
-      container.appendChild(div);
+function renderContent(section, data) {
+  const safeContent = data.content
+    .map(item => `<p>${escapeHTML(item)}</p>`)
+    .join("");
+
+    section.innerHTML = `
+    <h2>${escapeHTML(data.title)}</h2>
+    ${safeContent}
+  `;
+}
+
+function escapeHTML(str) {
+  return str.replace(/[&<>"']/g, m => ({
+    "&": "&amp;",
+    "<": "&lt;",
+    ">": "&gt;",
+    '"': "&quot;",
+    "'": "&#039;"
+  }[m]));
+}
+
+
+async function load() {
+  const sections = document.querySelectorAll(".section");
+
+  sections.forEach(renderSkeleton);
+
+  try {
+    const res = await fetch("./content.json");
+    if (!res.ok) {
+      throw new Error(`HTTP error: ${res.status}`);
+    }
+
+    const data = await res.json();
+
+    sections.forEach(section => {
+      const id = section.id;
+      const sectionData = data[id];
+
+      section.style.opacity = 0; // fade out skeleton before showing content
+
+      setTimeout(() => {
+        if (!sectionData || !sectionData.title || !Array.isArray(sectionData.content)) {
+          section.innerHTML = "<p>Content unavailable</p>";
+        } else {
+          renderContent(section, sectionData);
+        }
+        section.style.opacity = 1;
+      }, 150); // tweak delay (ms) to allow fade-out animation to complete
+    });
+
+  } catch (err) {
+    console.error("Load failed:", err);
+
+    sections.forEach(section => {
+      section.innerHTML = "<p>Failed to load content</p>";
     });
   }
+}
 
-  // Example: fetch function
-  async function fetchData(url) {
-    try {
-      // show loading state here if needed
-      const response = await fetch(url);
-      if (!response.ok) throw new Error('Network error');
-      const data = await response.json();
-      return data;
-    } catch (err) {
-      console.error(err);
-      schedulesContainer.innerHTML = '<p>Failed to load data.</p>';
-      return null;
-    }
-  }
-
-  // Example: usage
-  async function init() {
-    const data = await fetchData('/data.json'); // or Supabase API later
-    if (data) {
-      renderSection(schedulesContainer, data.schedules);
-      // Repeat for other tabs if needed
-    }
-  }
-
-  init();
-});
+document.addEventListener("DOMContentLoaded", load); // defer added in HTML <script>
