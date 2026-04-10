@@ -10,23 +10,23 @@ A mobile portal for taking your kids to sport tournaments.
 - [x] Test spacing and scrolling on mobile
 
 ### JSON Data
-- [ ] Create data.json (schedules, transport, equipment, postMatch)
-- [ ] Fetch JSON in script.js
-- [ ] Render sections dynamically
-- [ ] Confirm each tab displays correct data
+- [x] Create data.json (schedules, transport, equipment, postMatch)
+- [x] Fetch JSON in script.js (or index.html)
+- [x] Render sections dynamically
+- [x] Confirm each tab displays correct data
 
 ### Code Structure
-- [ ] Refactor rendering into reusable function
-- [ ] Clear content when switching tabs
-- [ ] Wrap logic in DOMContentLoaded
+- [x] Refactor rendering into reusable function
+- [x] Clear content when switching tabs
+- [x] Wrap logic in DOMContentLoaded
 
 ### UX Improvements
-- [ ] Add skeleton loaders
-- [ ] Add error handling for failed fetch
-- [ ] Improve navbar tap area
+- [x] Add skeleton loaders
+- [x] Add error handling for failed fetch
+- [x] Improve navbar tap area
 - [ ] Add active tab state
 - [ ] Add simple animations
-- [ ] Adjust colours if needed
+- [x] Adjust colours if needed
 
 ### Deployment
 - [x] Push to GitHub
