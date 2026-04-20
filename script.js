@@ -3,6 +3,9 @@ function renderSkeleton(section) {
     <div class="skeleton skel-title"></div>
     <div class="skeleton skel-text"></div>
     <div class="skeleton skel-text"></div>
+    <div class="skeleton skel-text"></div>
+    <div class="skeleton skel-text"></div>
+    <div class="skeleton skel-text"></div>
   `;
 }
 
@@ -54,7 +57,7 @@ async function load() {
           renderContent(section, sectionData);
         }
         section.style.opacity = 1;
-      }, 150); // tweak delay (ms) to allow fade-out animation to complete
+      }, 800); // tweak delay (ms) to allow fade-out animation to complete
     });
 
   } catch (err) {

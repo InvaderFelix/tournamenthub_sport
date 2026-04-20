@@ -1,6 +1,11 @@
 # Tournament Hub
 A mobile portal for taking your kids to sport tournaments.
 
+## Bugs:
+- [ ] Quotation marks "" break the .json to escapeHTML function in .js
+- [ ] Anchor on .sections in index.html are too high, and are being obscured by topnav
+- [ ] Consider adding dead space between .sections for readability
+
 ## Project TODO:
 
 ### Setup
